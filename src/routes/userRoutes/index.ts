@@ -1,11 +1,11 @@
-import { Router } from "express";
-import UserController from "../../Modules/users/UserController";
+import {  Router } from "express";
+import AuthController from "../../Modules/auth/AuthController";
 
-const user_controller = new UserController
 
 const userRoutes = Router()
 
-userRoutes.post('/', user_controller.CreateUser)
+userRoutes.post('/register', AuthController.register)
+userRoutes.post('/login', AuthController.login)
 
 
 export {userRoutes}

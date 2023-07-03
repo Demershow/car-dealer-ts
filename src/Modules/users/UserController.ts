@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import UserUseCase from "./CreateUserUseCase";
+import { IUserDTO } from "./DTO/UserDTO";
+import FindUser from "../../helpers/findUserByJwt";
 
-export default class UserController {
-  async CreateUser(req: Request, res: Response){
-    const {username, email, password} = req.body
+class UserController {
+  async editUser(req:Request, res:Response, user_data: IUserDTO) {
+    FindUser(req, res)
 
-    const user_use_case = new UserUseCase()
-
-    const result = await user_use_case.createUser({email, username, password})
-
-    res.status(201).json(result)
+    res.send(user_data.username)
   }
 }
+
+export default new UserController

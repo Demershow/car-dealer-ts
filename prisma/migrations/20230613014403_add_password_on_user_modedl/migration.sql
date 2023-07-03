@@ -9,4 +9,4 @@
 -- AlterTable
 ALTER TABLE "users" DROP COLUMN "name",
 ADD COLUMN     "password" TEXT NOT NULL,
-ADD COLUMN     "user_name" TEXT NOT NULL;
+ADD COLUMN     "username" TEXT NOT NULL;
